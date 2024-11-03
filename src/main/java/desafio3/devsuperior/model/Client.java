@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "clients")
-public class Clients {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,14 +15,13 @@ public class Clients {
     private String name;
     private String cpf;
     private Double income; //renda
-    @Column(name = "birth_date")
     private LocalDate birthDate; //data de nascimento
     private Integer children; //quantidade de filhos
 
-    public Clients() {
+    public Client() {
     }
 
-    public Clients(Long id, String name, String cpf, Double income, LocalDate birthDate, Integer children) {
+    public Client(Long id, String name, String cpf, Double income, LocalDate birthDate, Integer children) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
@@ -83,7 +82,7 @@ public class Clients {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Clients clients = (Clients) o;
+        Client clients = (Client) o;
         return Objects.equals(id, clients.id);
     }
 
