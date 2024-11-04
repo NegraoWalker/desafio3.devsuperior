@@ -1,5 +1,7 @@
 package desafio3.devsuperior.dto;
 
+import desafio3.devsuperior.model.Client;
+
 import java.time.LocalDate;
 
 public class ClientDto {
@@ -22,6 +24,16 @@ public class ClientDto {
         this.birthDate = birthDate;
         this.children = children;
     }
+
+    public ClientDto(Client client) {
+        id = client.getId();
+        name = client.getName();
+        cpf = client.getCpf();
+        income = client.getIncome();
+        birthDate = client.getBirthDate();
+        children = client.getChildren();
+    }
+
 
     public Long getId() {
         return id;
