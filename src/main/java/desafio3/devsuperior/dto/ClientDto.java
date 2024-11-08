@@ -1,15 +1,19 @@
 package desafio3.devsuperior.dto;
 
 import desafio3.devsuperior.model.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDto {
 
     private Long id;
+    @NotBlank(message = "O campo name não pode ser vazio ou nulo!")
     private String name;
     private String cpf;
     private Double income; //renda
+    @PastOrPresent(message = "O campo birthDate não pode ser uma data futura!")
     private LocalDate birthDate; //data de nascimento
     private Integer children; //quantidade de filhos
 
