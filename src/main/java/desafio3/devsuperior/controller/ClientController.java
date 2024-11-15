@@ -2,6 +2,7 @@ package desafio3.devsuperior.controller;
 
 import desafio3.devsuperior.dto.ClientDto;
 import desafio3.devsuperior.service.ClientService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,12 +27,12 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<ClientDto> insert(@RequestBody ClientDto clientDto) {
+    public ResponseEntity<ClientDto> insert(@Valid @RequestBody ClientDto clientDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(clientService.insert(clientDto));
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ClientDto> update(@PathVariable Long id, @RequestBody ClientDto clientDto) {
+    public ResponseEntity<ClientDto> update(@PathVariable Long id, @Valid @RequestBody ClientDto clientDto) {
         return ResponseEntity.status(HttpStatus.OK).body(clientService.update(id, clientDto));
     }
 

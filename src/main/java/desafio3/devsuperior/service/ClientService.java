@@ -48,7 +48,7 @@ public class ClientService {
             transformDtoToEntity(clientDto, client);
             return new ClientDto(client);
         } catch (EntityNotFoundException e) {
-            throw new ResourceNotFoundException("Recurso não encontrado!");
+            throw new ResourceNotFoundException("Cliente não encontrado!");
         }
 
     }
@@ -56,7 +56,7 @@ public class ClientService {
     @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
         if (!clientRepository.existsById(id)) {
-            throw new ResourceNotFoundException("Recurso não encontrado!");
+            throw new ResourceNotFoundException("Cliente não encontrado!");
         }
         try {
             clientRepository.deleteById(id);
